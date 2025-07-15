@@ -95,12 +95,6 @@ export default function HomePage() {
               {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
               <span className="sr-only">Toggle theme</span>
             </Button>
-            <Link
-              href="/contact"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Log in
-            </Link>
             <Button asChild className="rounded-full">
               <Link href="/contact">
                 Get Started
