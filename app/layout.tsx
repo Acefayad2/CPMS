@@ -3,7 +3,8 @@ import "@/styles/globals.css"
 import { Inter } from "next/font/google"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
-import LloydBot from '../components/LloydBot';
+import GlobalSplineLoader from "@/components/GlobalSplineLoader";
+import CustomerSupportBubble from "@/components/CustomerSupportBubble";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,15 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.10.29/build/spline-viewer.js"
-        ></script>
+        {/* Removed Spline viewer script to avoid duplicates and incorrect versions */}
       </head>
       <body className={inter.className}>
+        <GlobalSplineLoader />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
-          <LloydBot />
+          <CustomerSupportBubble />
         </ThemeProvider>
       </body>
     </html>
