@@ -163,8 +163,8 @@ export default function PricingPage() {
                     {[
                       {
                         name: "Strategic Review",
-                        price: "$2,500",
-                        period: "one-time",
+                        price: "",
+                        period: "",
                         description: "Comprehensive business analysis and strategic recommendations.",
                         features: [
                           "Business assessment",
@@ -173,12 +173,12 @@ export default function PricingPage() {
                           "Implementation plan",
                           "Follow-up session",
                         ],
-                        cta: "Get Started",
+                        cta: "Contact Sales",
                       },
                       {
                         name: "Ongoing Advisory",
-                        price: "$5,000",
-                        period: "monthly",
+                        price: "",
+                        period: "",
                         description: "Continuous strategic guidance and operational support.",
                         features: [
                           "Monthly strategy sessions",
@@ -188,13 +188,13 @@ export default function PricingPage() {
                           "24/7 email support",
                           "Performance tracking",
                         ],
-                        cta: "Get Started",
+                        cta: "Contact Sales",
                         popular: true,
                       },
                       {
                         name: "Enterprise Partnership",
-                        price: "Custom",
-                        period: "tailored",
+                        price: "",
+                        period: "",
                         description: "Full-scale transformation and ongoing partnership.",
                         features: [
                           "Dedicated team",
@@ -224,12 +224,6 @@ export default function PricingPage() {
                           )}
                           <CardContent className="p-6 flex flex-col h-full">
                             <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                            <div className="flex items-baseline mb-2">
-                              <span className="text-3xl font-bold">{plan.price}</span>
-                              {plan.period !== "tailored" && (
-                                <span className="text-muted-foreground ml-1">/{plan.period}</span>
-                              )}
-                            </div>
                             <p className="text-muted-foreground mb-6">{plan.description}</p>
                             <ul className="space-y-3 mb-8 flex-grow">
                               {plan.features.map((feature, j) => (
@@ -268,11 +262,11 @@ export default function PricingPage() {
                           "First milestone delivery",
                           "30-day support",
                         ],
-                        cta: "Get Started",
+                        cta: "Contact Sales",
                       },
                       {
                         name: "Full Project Management",
-                        price: "$25,000",
+                        price: "",
                         period: "project",
                         description: "End-to-end project management from start to finish.",
                         features: [
@@ -283,7 +277,7 @@ export default function PricingPage() {
                           "Post-project review",
                           "90-day warranty",
                         ],
-                        cta: "Get Started",
+                        cta: "Contact Sales",
                         popular: true,
                       },
                       {
@@ -319,12 +313,6 @@ export default function PricingPage() {
                           )}
                           <CardContent className="p-6 flex flex-col h-full">
                             <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                            <div className="flex items-baseline mb-2">
-                              <span className="text-3xl font-bold">{plan.price}</span>
-                              {plan.period !== "program" && (
-                                <span className="text-muted-foreground ml-1">/{plan.period}</span>
-                              )}
-                            </div>
                             <p className="text-muted-foreground mb-6">{plan.description}</p>
                             <ul className="space-y-3 mb-8 flex-grow">
                               {plan.features.map((feature, j) => (

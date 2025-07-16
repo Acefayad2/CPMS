@@ -4,7 +4,6 @@ import { Inter } from "next/font/google"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 import GlobalSplineLoader from "@/components/GlobalSplineLoader";
-import CustomerSupportBubble from "@/components/CustomerSupportBubble";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -29,8 +28,10 @@ export default function RootLayout({
         <GlobalSplineLoader />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
-          <CustomerSupportBubble />
         </ThemeProvider>
+        {/* Add Botpress scripts for chat widget */}
+        <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+        <script src="https://files.bpcontent.cloud/2025/07/16/08/20250716084418-W1PK5CL9.js" defer></script>
       </body>
     </html>
   )

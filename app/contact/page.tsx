@@ -44,18 +44,8 @@ export default function ContactPage() {
     },
     {
       title: "Phone",
-      value: "+1 (410) 555-0123",
+      value: "6197150028",
       icon: <Phone className="size-5" />,
-    },
-    {
-      title: "Address",
-      value: "Chesapeake Bay Area\nMaryland, USA",
-      icon: <MapPin className="size-5" />,
-    },
-    {
-      title: "Business Hours",
-      value: "Mon - Fri: 8:00 AM - 6:00 PM EST\nSat - Sun: By Appointment",
-      icon: <Clock className="size-5" />,
     },
   ]
 

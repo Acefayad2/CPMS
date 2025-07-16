@@ -1,64 +1,47 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 
 export default function CustomerSupportBubble() {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    if (isOpen) {
+      // Inject Botpress scripts only when chat is opened
+      if (!document.getElementById('bp-webchat-script')) {
+        const script1 = document.createElement('script');
+        script1.src = 'https://cdn.botpress.cloud/webchat/v3.2/inject.js';
+        script1.defer = true;
+        script1.id = 'bp-webchat-script';
+        document.body.appendChild(script1);
+      }
+      if (!document.getElementById('bp-webchat-custom-script')) {
+        const script2 = document.createElement('script');
+        script2.src = 'https://files.bpcontent.cloud/2025/07/16/08/20250716084418-W1PK5CL9.js';
+        script2.defer = true;
+        script2.id = 'bp-webchat-custom-script';
+        document.body.appendChild(script2);
+      }
+    }
+  }, [isOpen]);
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* Chat Interface */}
+      {/* Chat Interface (no custom frame, just open Botpress widget) */}
       {isOpen && (
-        <div className="mb-4 w-80 h-96 bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col">
-          {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50 rounded-t-lg">
-            <div className="flex items-center gap-2">
-              <MessageCircle className="w-5 h-5 text-blue-600" />
-              <span className="font-semibold text-gray-800">Customer Support</span>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="p-1 hover:bg-gray-200 rounded-full transition-colors"
-            >
-              <X className="w-4 h-4 text-gray-600" />
-            </button>
+        <div className="mb-4 w-80 h-16 bg-white rounded-lg shadow-lg border border-gray-200 flex items-center justify-between p-4">
+          <div className="flex items-center gap-2">
+            <MessageCircle className="w-5 h-5 text-blue-600" />
+            <span className="font-semibold text-gray-800">Customer Support</span>
           </div>
-          
-          {/* Chat Area */}
-          <div className="flex-1 p-4 overflow-y-auto">
-            <div className="bg-blue-50 p-3 rounded-lg mb-3">
-              <p className="text-sm text-gray-700">
-                Hi! How can we help you today? Our team is here to assist you with any questions about our services.
-              </p>
-            </div>
-            
-            {/* Placeholder for embedded chat */}
-            <div className="text-center text-gray-500 text-sm py-8">
-              <MessageCircle className="w-8 h-8 mx-auto mb-2 text-gray-300" />
-              <p>Chat widget will be embedded here</p>
-            </div>
-          </div>
-          
-          {/* Input Area */}
-          <div className="p-4 border-t border-gray-200">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Type your message..."
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                disabled
-              />
-              <button
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
-                disabled
-              >
-                Send
-              </button>
-            </div>
-          </div>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-1 hover:bg-gray-200 rounded-full transition-colors"
+          >
+            <X className="w-4 h-4 text-gray-600" />
+          </button>
         </div>
       )}
-      
       {/* Support Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
