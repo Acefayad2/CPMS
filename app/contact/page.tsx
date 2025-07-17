@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ChevronRight, Menu, X, Moon, Sun, Mail, Phone, MapPin, Clock } from "lucide-react"
+import { ChevronRight, Menu, X, Moon, Sun, Mail, Phone, MapPin, Clock, Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -161,7 +161,7 @@ export default function ContactPage() {
         <section className="w-full py-20">
           <div className="container px-4 md:px-6">
             <div className="grid gap-12 lg:grid-cols-2">
-              {/* Contact Form */}
+              {/* Contact Form (replaced with buttons) */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -169,39 +169,47 @@ export default function ContactPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Card>
-                  <CardContent className="p-6">
-                    <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
-                    <form className="space-y-6">
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        <div className="space-y-2">
-                          <Label htmlFor="firstName">First Name</Label>
-                          <Input id="firstName" placeholder="John" />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="lastName">Last Name</Label>
-                          <Input id="lastName" placeholder="Doe" />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="john@example.com" />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="company">Company</Label>
-                        <Input id="company" placeholder="Your Company" />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="message">Message</Label>
-                        <Textarea
-                          id="message"
-                          placeholder="Tell us about your project and how we can help..."
-                          className="min-h-[120px]"
-                        />
-                      </div>
-                      <Button type="submit" className="w-full rounded-full">
-                        Send Message
+                  <CardContent className="p-6 flex flex-col gap-6 items-center justify-center">
+                    <h2 className="text-2xl font-bold mb-6">Contact Us Directly</h2>
+                    <Button
+                      asChild
+                      size="lg"
+                      className="w-full flex items-center gap-2 rounded-full mb-4"
+                    >
+                      <a href="tel:6197150028">
+                        <Phone className="size-5" />
+                        Call Us
+                      </a>
+                    </Button>
+                    <Button
+                      asChild
+                      size="lg"
+                      className="w-full flex items-center gap-2 rounded-full mb-4"
+                    >
+                      <a
+                        href="mailto:info@cpmsmd.com?subject=Inquiry%20from%20CPMS%20Website&body=Hello%20CPMS%20Team%2C%0A%0AFirst%20Name%3A%0ALast%20Name%3A%0AEmail%3A%0ACompany%3A%0AMessage%3A%0A%0AThank%20you!"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Mail className="size-5" />
+                        Email Us
+                      </a>
+                    </Button>
+                    <div className="flex items-center gap-2">
+                      <span className="text-muted-foreground text-sm">or</span>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full"
+                        onClick={() => {
+                          navigator.clipboard.writeText('info@cpmsmd.com')
+                        }}
+                        title="Copy email address"
+                      >
+                        <Copy className="size-4" />
                       </Button>
-                    </form>
+                      <span className="text-muted-foreground text-sm">Copy Email</span>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
