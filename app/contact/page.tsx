@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useTheme } from "next-themes"
+import Image from "next/image"
 
 export default function ContactPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -56,10 +57,14 @@ export default function ContactPage() {
       >
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
-            <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-              C
-            </div>
-            <span>CPMS</span>
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={32}
+              height={32}
+              className="size-8 rounded-lg object-contain bg-white"
+              priority
+            />
           </Link>
           <nav className="hidden md:flex gap-8">
             <Link

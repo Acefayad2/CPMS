@@ -61,13 +61,12 @@ export default function HomePage() {
           <Link href="/" className="flex items-center gap-2 font-bold">
             <Image
               src="/logo.png"
-              alt="CPMS Logo"
+              alt="Logo"
               width={32}
               height={32}
               className="size-8 rounded-lg object-contain bg-white"
               priority
             />
-            <span>CPMS</span>
           </Link>
           <nav className="hidden md:flex gap-8">
             <Link
