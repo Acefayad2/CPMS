@@ -59,9 +59,14 @@ export default function HomePage() {
       >
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
-            <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-              C
-            </div>
+            <Image
+              src="/logo.png"
+              alt="CPMS Logo"
+              width={32}
+              height={32}
+              className="size-8 rounded-lg object-contain bg-white"
+              priority
+            />
             <span>CPMS</span>
           </Link>
           <nav className="hidden md:flex gap-8">
@@ -295,9 +300,14 @@ export default function HomePage() {
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
             <div className="space-y-4">
               <Link href="/" className="flex items-center gap-2 font-bold">
-                <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-                  C
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="CPMS Logo"
+                  width={32}
+                  height={32}
+                  className="size-8 rounded-lg object-contain bg-white"
+                  priority
+                />
                 <span>CPMS</span>
               </Link>
               <p className="text-sm text-muted-foreground">
