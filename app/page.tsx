@@ -60,7 +60,7 @@ export default function HomePage() {
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <Image
-              src="/logo.png"
+              src="/logo.jpg"
               alt="Logo"
               width={32}
               height={32}
