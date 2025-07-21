@@ -58,7 +58,7 @@ export default function ContactPage() {
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <Image
-              src="/Project%20Management.png"
+              src="/logo.png"
               alt="Logo"
               width={32}
               height={32}
