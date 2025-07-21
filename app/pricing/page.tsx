@@ -43,7 +43,7 @@ export default function PricingPage() {
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <Image
-              src="/logo.png"
+              src="/Project%20Management.png"
               alt="Logo"
               width={32}
               height={32}
