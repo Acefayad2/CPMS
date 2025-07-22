@@ -95,14 +95,10 @@ export default function ServicesPage() {
       >
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
-            <Image
-              src="/logo.jpg"
-              alt="Logo"
-              width={32}
-              height={32}
-              className="size-8 rounded-lg object-contain bg-white"
-              priority
-            />
+            <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
+              C
+            </div>
+            <span>CPMS</span>
           </Link>
           <nav className="hidden md:flex gap-8">
             <Link
