@@ -70,6 +70,12 @@ export default function ContactPage() {
               Services
             </Link>
             <Link
+              href="/portfolio"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Portfolio
+            </Link>
+            <Link
               href="/about"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
@@ -121,6 +127,9 @@ export default function ContactPage() {
             <div className="container py-4 flex flex-col gap-4">
               <Link href="/services" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
                 Services
+              </Link>
+              <Link href="/portfolio" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                Portfolio
               </Link>
               <Link href="/about" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
                 About
@@ -307,7 +316,7 @@ export default function ContactPage() {
                 </li>
                 <li>
                   <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Process Optimization
+                    Website Development
                   </Link>
                 </li>
               </ul>
@@ -321,8 +330,8 @@ export default function ContactPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Contact
+                  <Link href="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Portfolio
                   </Link>
                 </li>
                 <li>

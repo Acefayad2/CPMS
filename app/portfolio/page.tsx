@@ -2,30 +2,15 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
-import {
-  ChevronRight,
-  Menu,
-  X,
-  Moon,
-  Sun,
-  ArrowRight,
-  Shield,
-  Users,
-  BarChart,
-  Layers,
-  Target,
-  TrendingUp,
-  CheckCircle,
-  Globe,
-} from "lucide-react"
+import { ChevronRight, Menu, X, Moon, Sun, ArrowRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { useTheme } from "next-themes"
-import Image from "next/image"
 
-export default function ServicesPage() {
+export default function PortfolioPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -49,50 +34,54 @@ export default function ServicesPage() {
     setTheme(theme === "dark" ? "light" : "dark")
   }
 
-  const services = [
+  const portfolioItems = [
     {
-      title: "Project Management",
-      description: "End-to-end project oversight ensuring timely delivery, budget adherence, and quality outcomes.",
-      icon: <BarChart className="size-6" />,
-      features: ["Project Planning & Scheduling", "Resource Allocation", "Risk Management", "Quality Assurance"],
+      title: "E-Commerce Storefront",
+      category: "E-Commerce",
+      description: "A modern online store with product catalog, shopping cart, and secure checkout functionality.",
+      image: "/images/portfolio/ecommerce-store.jpg",
+      technologies: ["Next.js", "Tailwind CSS", "Stripe"],
+      tier: "Premium",
     },
     {
-      title: "Strategic Consulting",
-      description: "Data-driven insights and strategic guidance to accelerate business growth and market positioning.",
-      icon: <Target className="size-6" />,
-      features: ["Market Analysis", "Business Strategy", "Growth Planning", "Competitive Intelligence"],
+      title: "Local Restaurant Website",
+      category: "Restaurant & Food",
+      description: "Elegant restaurant website featuring online menu, reservations, and location information.",
+      image: "/images/portfolio/restaurant-website.jpg",
+      technologies: ["React", "Responsive Design", "Google Maps"],
+      tier: "Business",
     },
     {
-      title: "Process Optimization",
-      description: "Streamline operations and eliminate inefficiencies with proven methodologies and best practices.",
-      icon: <Layers className="size-6" />,
-      features: ["Workflow Analysis", "Process Redesign", "Automation Solutions", "Performance Metrics"],
+      title: "Professional Services Firm",
+      category: "Professional Services",
+      description: "Corporate website for a law firm with team profiles, practice areas, and contact forms.",
+      image: "/images/portfolio/law-firm-website.jpg",
+      technologies: ["Next.js", "Tailwind CSS", "Contact Forms"],
+      tier: "Premium",
     },
     {
-      title: "Risk Management",
-      description:
-        "Comprehensive risk assessment and mitigation strategies to protect your investments and operations.",
-      icon: <Shield className="size-6" />,
-      features: ["Risk Assessment", "Mitigation Planning", "Compliance Management", "Crisis Response"],
+      title: "Creative Portfolio & Blog",
+      category: "Portfolio",
+      description: "Personal portfolio site for a designer showcasing work, blog posts, and professional journey.",
+      image: "/images/portfolio/portfolio-blog.jpg",
+      technologies: ["React", "CMS Integration", "SEO Optimized"],
+      tier: "Business",
     },
     {
-      title: "Team Development",
-      description: "Build high-performing teams through targeted training, coaching, and development programs.",
-      icon: <Users className="size-6" />,
-      features: ["Leadership Training", "Team Building", "Skills Development", "Performance Coaching"],
+      title: "Nonprofit Organization",
+      category: "Nonprofit",
+      description: "Mission-driven website with donation integration, volunteer signup, and impact storytelling.",
+      image: "/images/portfolio/nonprofit-website.jpg",
+      technologies: ["Next.js", "Donation Integration", "Accessibility"],
+      tier: "Business",
     },
     {
-      title: "Performance Analytics",
-      description: "Advanced analytics and reporting to measure success and identify improvement opportunities.",
-      icon: <TrendingUp className="size-6" />,
-      features: ["KPI Development", "Data Analysis", "Performance Dashboards", "Reporting Solutions"],
-    },
-    {
-      title: "Website Development",
-      description: "Custom website design and development to establish your online presence and drive business growth.",
-      icon: <Globe className="size-6" />,
-      features: ["Custom Design", "Responsive Development", "SEO Optimization", "Ongoing Maintenance"],
-      pricing: "$200 - $750",
+      title: "SaaS Product Landing Page",
+      category: "Technology",
+      description: "High-converting landing page for a software product with features, pricing, and testimonials.",
+      image: "/images/portfolio/saas-landing.jpg",
+      technologies: ["Next.js", "Animations", "Lead Capture"],
+      tier: "Premium",
     },
   ]
 
@@ -111,13 +100,13 @@ export default function ServicesPage() {
           <nav className="hidden md:flex gap-8">
             <Link
               href="/services"
-              className="text-sm font-medium text-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Services
             </Link>
             <Link
               href="/portfolio"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-foreground transition-colors hover:text-foreground"
             >
               Portfolio
             </Link>
@@ -202,22 +191,41 @@ export default function ServicesPage() {
               className="text-center max-w-3xl mx-auto mb-16"
             >
               <Badge className="mb-4 rounded-full px-4 py-1.5 text-sm font-medium" variant="secondary">
-                Our Services
+                Our Work
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Comprehensive Management Solutions</h1>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Website Development Portfolio</h1>
               <p className="text-lg md:text-xl text-muted-foreground">
-                Operational excellence that frees creative minds to focus on their passion and purpose. We provide the
-                strong operational foundations that support visionary ideas.
+                Explore our collection of custom-built websites. Each project showcases our commitment to quality
+                design, functionality, and client satisfaction.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Pricing Note */}
+        <section className="w-full pb-12">
+          <div className="container px-4 md:px-6">
+            <div className="bg-muted/50 rounded-2xl p-6 md:p-8 text-center max-w-3xl mx-auto">
+              <h2 className="text-xl font-semibold mb-2">Website Development Services</h2>
+              <p className="text-muted-foreground mb-4">
+                Custom websites starting from <span className="font-bold text-foreground">$200 - $750</span> based on
+                project scope and requirements.
+              </p>
+              <Button asChild variant="outline" className="rounded-full">
+                <Link href="/pricing">
+                  View Pricing Details
+                  <ArrowRight className="ml-2 size-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Portfolio Grid */}
         <section className="w-full py-20">
           <div className="container px-4 md:px-6">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {services.map((service, i) => (
+              {portfolioItems.map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
@@ -225,21 +233,40 @@ export default function ServicesPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <Card className="h-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-lg">
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <div className="size-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mb-4">
-                        {service.icon}
+                  <Card className="h-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-lg group">
+                    <div className="relative overflow-hidden aspect-video">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge variant="secondary" className="bg-background/90 backdrop-blur-sm">
+                          {item.category}
+                        </Badge>
                       </div>
-                      <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                      <p className="text-muted-foreground mb-6 flex-grow">{service.description}</p>
-                      <ul className="space-y-2">
-                        {service.features.map((feature, j) => (
-                          <li key={j} className="flex items-center text-sm">
-                            <CheckCircle className="mr-2 size-4 text-primary" />
-                            <span>{feature}</span>
-                          </li>
+                      <div className="absolute top-3 right-3">
+                        <Badge
+                          className={`${item.tier === "Premium" ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}
+                        >
+                          {item.tier}
+                        </Badge>
+                      </div>
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground mb-4">{item.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.technologies.map((tech, j) => (
+                          <span
+                            key={j}
+                            className="text-xs px-2 py-1 bg-muted rounded-full text-muted-foreground"
+                          >
+                            {tech}
+                          </span>
                         ))}
-                      </ul>
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -258,9 +285,10 @@ export default function ServicesPage() {
               transition={{ duration: 0.5 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Ready to Get Started?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Ready to Start Your Project?</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Let's discuss how our services can help optimize your operations and drive growth.
+                Let's discuss your website needs and create something amazing together. Schedule a free consultation to
+                get a custom quote.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="rounded-full">
