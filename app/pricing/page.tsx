@@ -55,6 +55,12 @@ export default function PricingPage() {
               Services
             </Link>
             <Link
+              href="/portfolio"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Portfolio
+            </Link>
+            <Link
               href="/about"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
@@ -107,6 +113,9 @@ export default function PricingPage() {
               <Link href="/services" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
                 Services
               </Link>
+              <Link href="/portfolio" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                Portfolio
+              </Link>
               <Link href="/about" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
                 About
               </Link>
@@ -155,6 +164,9 @@ export default function PricingPage() {
                     </TabsTrigger>
                     <TabsTrigger value="project" className="rounded-full px-6">
                       Project Management
+                    </TabsTrigger>
+                    <TabsTrigger value="website" className="rounded-full px-6">
+                      Website Development
                     </TabsTrigger>
                   </TabsList>
                 </div>
@@ -336,6 +348,103 @@ export default function PricingPage() {
                     ))}
                   </div>
                 </TabsContent>
+
+                <TabsContent value="website">
+                  <div className="grid gap-8 lg:grid-cols-3">
+                    {[
+                      {
+                        name: "Basic Website",
+                        price: "$200 - $350",
+                        period: "per project",
+                        description: "Perfect for personal sites, portfolios, or simple business landing pages.",
+                        features: [
+                          "Up to 3 pages",
+                          "Mobile responsive design",
+                          "Contact form integration",
+                          "Basic SEO setup",
+                          "1 revision round",
+                        ],
+                        cta: "Get Started",
+                      },
+                      {
+                        name: "Business Website",
+                        price: "$350 - $550",
+                        period: "per project",
+                        description: "Professional websites for small to medium businesses with more functionality.",
+                        features: [
+                          "Up to 7 pages",
+                          "Custom design",
+                          "Mobile responsive",
+                          "Contact & lead forms",
+                          "Social media integration",
+                          "2 revision rounds",
+                        ],
+                        cta: "Get Started",
+                        popular: true,
+                      },
+                      {
+                        name: "Premium Website",
+                        price: "$550 - $750",
+                        period: "per project",
+                        description: "Advanced websites with custom features and ongoing support.",
+                        features: [
+                          "Up to 12 pages",
+                          "Custom design & branding",
+                          "Advanced functionality",
+                          "CMS integration",
+                          "E-commerce ready",
+                          "3 revision rounds",
+                          "30-day support",
+                        ],
+                        cta: "Get Started",
+                      },
+                    ].map((plan, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                      >
+                        <Card
+                          className={`relative overflow-hidden h-full ${plan.popular ? "border-primary shadow-lg" : "border-border/40"} bg-gradient-to-b from-background to-muted/10`}
+                        >
+                          {plan.popular && (
+                            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium rounded-bl-lg">
+                              Most Popular
+                            </div>
+                          )}
+                          <CardContent className="p-6 flex flex-col h-full">
+                            <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                            <div className="mb-2">
+                              <span className="text-3xl font-bold">{plan.price}</span>
+                              <span className="text-muted-foreground ml-2">/ {plan.period}</span>
+                            </div>
+                            <p className="text-muted-foreground mb-6">{plan.description}</p>
+                            <ul className="space-y-3 mb-8 flex-grow">
+                              {plan.features.map((feature, j) => (
+                                <li key={j} className="flex items-center">
+                                  <Check className="mr-2 size-4 text-primary" />
+                                  <span className="text-sm">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                            <Button
+                              asChild
+                              className="w-full rounded-full"
+                              variant={plan.popular ? "default" : "outline"}
+                            >
+                              <Link href="/contact">{plan.cta}</Link>
+                            </Button>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <p className="text-center text-muted-foreground mt-8">
+                    Final pricing determined during consultation based on specific requirements and complexity.
+                  </p>
+                </TabsContent>
               </Tabs>
             </div>
           </div>
@@ -401,7 +510,7 @@ export default function PricingPage() {
                 </li>
                 <li>
                   <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Process Optimization
+                    Website Development
                   </Link>
                 </li>
               </ul>
@@ -415,8 +524,8 @@ export default function PricingPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Contact
+                  <Link href="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Portfolio
                   </Link>
                 </li>
                 <li>
